@@ -18,13 +18,13 @@ export default class ExchangeRates {
   static convertCurrency(amount,currencyFrom,currencyTo) {
     return new Promise(function(resolve, reject) {
       let xhr = new XMLHttpRequest();
-      const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${currencyFrom}/${currencyTo}/${amount}`;
+      const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${currencyFrom}/${amount}/${currencyTo}`;
       xhr.addEventListener("loadend", function() {
         const response = JSON.parse(this.responseText);
         if (this.status === 200) {
           resolve(response);
         } else {
-          reject([this, response, amount]);
+          reject([this.status, this.statusText, this.message]);
         }
       });
       xhr.open("GET", url, true);

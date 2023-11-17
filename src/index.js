@@ -20,6 +20,7 @@ function doConversion(amount, currencyFrom, currencyTo) {
   conversion.then(function (data) {
     printResults(data.conversion_result, data.conversion_rate, data.base_code, data.target_code);
   }, function (errorMessage) {
+    window.alert("ERROR!");
     printError(errorMessage);
   });
 }
