@@ -15,6 +15,14 @@ async function getConversionOptions() {
   }
 }
 
+function doConversion(amount,currencyFrom,currencyTo) {
+  let conversion = ExchangeRates.convertCurrency(amount,currencyFrom,currencyTo);
+  conversion.then(function(convertedNumber) {
+    console.log(convertedNumber);
+  }, function(errorMessage) {
+    printError(errorMessage);
+  });
+}
 
 // UI Logic
 function addConversionOptions(array){
@@ -37,7 +45,11 @@ function printError(error) {
 
 function handleSampleForm() {
   event.preventDefault();
-
+  const currencyFrom = (document.getElementById("currencyFrom").value).substring(0,3);
+  const currencyTo = (document.getElementById("currencyTo").value).substring(0,3);
+  console.log(typeof(currencyFrom));
+  let amountDummy = 100;
+  doConversion(amountDummy,currencyFrom,currencyTo);
 }
 
 window.addEventListener("load", function() {
