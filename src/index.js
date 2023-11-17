@@ -5,8 +5,9 @@ import ExchangeRates from './services/ExchangeRates.js';
 
 function handleSampleForm() {
   event.preventDefault();
-  let currencies = ExchangeRates.getValidCodes();
-    console.log(currencies);
+  let currencies = {};
+  currencies = ExchangeRates.getValidCodesAsync();
+  console.log(currencies.documentation);
   // document.getElementById("outputDiv").innerText = null;
   // const pTag = document.createElement("p");
   // pTag.append(document.getElementById("text-input").value);
