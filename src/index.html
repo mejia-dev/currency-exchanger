@@ -6,23 +6,33 @@
 <body>
   <h1>Currency Exchanger</h1>
 
-  <form id="conversion-form">
-    <h4>Convert From:</h4>
-    <select id="currencyFrom">
-      <option selected disabled hidden>-Select a Currency-</option>
-    </select>
-    <h4>Convert To:</h4>
-    <select id="currencyTo">
-      <option selected disabled hidden>-Select a Currency-</option>
-    </select>
-    <br><br>
-    <label for="amount-input">Enter an amount to convert:</label>
-    <input id="amount-input" type="number" required>
-    <button type="submit">Convert</button>
-  </form>
+  <br>
 
-  <p id="errorMsgHolder"></p>
+  <div id="inputDiv">
+    <h2>Calculation</h2>
+    <form id="conversion-form">
+      <p>Convert From:</p>
+      <select id="currencyFrom">
+        <option selected disabled hidden>-Select a Currency-</option>
+      </select>
+      <p>Convert To:</p>
+      <select id="currencyTo">
+        <option selected disabled hidden>-Select a Currency-</option>
+      </select>
+      <br><br>
+      <label for="amount-input">Enter an amount to convert:</label>
+      <input id="amount-input" type="number" required>
+      <button type="submit">Convert</button>
+    </form>
+  </div>
 
-  <div id="outputDiv"></div>
+  <br><br>
+
+  <div id="outputDiv" class="hidden">
+    <p id="errorMsgHolder"></p>
+    <h2>Results</h2>
+    <p>Resulting Amount: <span id="resultAmount"></span></p>
+    <p>Conversion Rate: <span id="conversionRate"></span></p>
+  </div>
 </body>
 </html>
