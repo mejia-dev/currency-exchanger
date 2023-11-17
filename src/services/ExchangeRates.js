@@ -7,8 +7,10 @@ export default class ExchangeRates {
           const errorMessage = `${response.status} ${response.statusText}`;
           throw new Error(errorMessage);
         } else {
-          console.log(response.json());
-          return response.json();
+          response.then(data => {return data.json()})
+          // let jsonResponse;
+          // response.json().then((data) => jsonResponse = data);
+          // return jsonResponse;
         }
       })      
       .catch(function(error) {
