@@ -11,7 +11,6 @@ async function getConversionOptions() {
     addConversionOptions(response.supported_codes);
   }
   else {
-    window.alert("ERROR! " + response);
     processHTMLErrors(response.toString());
   }
 }
@@ -48,11 +47,13 @@ function printResults(amount, rate, currencyFrom, currencyTo) {
 function processHTMLErrors(errorInput) {
   let errorOutput = "";
   if (errorInput.includes("403")) {
-    errorOutput = "Error 403 Forbidden: Check to confirm that the API key is active and is entered correctly into the .env file";
+    errorOutput = "Error 403 Forbidden: Check to confirm that the API key is active and is entered correctly into the .env file.";
   } else if (errorInput.includes("404")) {
-    errorOutput = "Error 404 Not Found: Check to confirm that the API request was formatted correctly and try again";
+    errorOutput = "Error 404 Not Found: Check to confirm that the API request was formatted correctly and try again.";
   } else if (errorInput.includes("5")) {
     errorOutput = "Error 5xx Server Error: The API returned a server error. Please try again later.";
+  } else if (errorInput.includes("Failed to fetch")) {
+    errorOutput = "Error 404 Not Found: Check to confirm that the API request was formatted correctly and try again.";
   } else {
     errorOutput = `Undefined ${errorInput}`;
   }
