@@ -32,7 +32,7 @@ function addConversionOptions(array){
 
 function printError(error) {
   document.getElementById("errorMsgHolder").innerText = "";
-  document.getElementById("errorMsgHolder").innerText = error;
+  document.getElementById("errorMsgHolder").innerText = `Error: ${error}`;
 }
 
 function handleSampleForm() {
