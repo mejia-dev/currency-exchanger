@@ -17,8 +17,8 @@ async function getConversionOptions() {
 
 function doConversion(amount,currencyFrom,currencyTo) {
   let conversion = ExchangeRates.convertCurrency(amount,currencyFrom,currencyTo);
-  conversion.then(function(convertedNumber) {
-    console.log(convertedNumber);
+  conversion.then(function(data) {
+    printResults(data.conversion_result,data.conversion_rate,data.base_code,data.target_code);
   }, function(errorMessage) {
     printError(errorMessage);
   });
@@ -38,6 +38,12 @@ function addConversionOptions(array){
   }
 }
 
+function printResults(amount,rate,currencyFrom,currencyTo) {
+  document.getElementById("outputDiv").removeAttribute("class");
+  document.getElementById("resultAmount").innerText = `${amount} ${currencyTo}`;
+  document.getElementById("conversionRate").innerText = `1 ${currencyFrom} = ${rate} ${currencyTo}`;
+}
+
 function printError(error) {
   document.getElementById("errorMsgHolder").innerText = "";
   document.getElementById("errorMsgHolder").innerText = `${error}`;
@@ -50,6 +56,9 @@ function handleConversionForm() {
   const currencyTo = (document.getElementById("currencyTo").value).substring(0,3);
   if ((currencyFrom === "-Se") || (currencyTo === "-Se")) {
     printError('Please enter a valid currency');
+    return;
+  } else if (currencyFrom === currencyTo ) {
+    printResults(amount,1,currencyFrom,currencyTo);
     return;
   }
   doConversion(amount,currencyFrom,currencyTo);
