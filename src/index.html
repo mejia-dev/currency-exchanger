@@ -6,21 +6,22 @@
 <body>
   <h1>Currency Exchanger</h1>
 
-  <p id="errorMsgHolder"></p>
-
   <form id="conversion-form">
+    <h4>Convert From:</h4>
     <select id="currencyFrom">
-      <option>- Convert From -</option>
+      <option selected disabled hidden>-Select a Currency-</option>
     </select>
+    <h4>Convert To:</h4>
     <select id="currencyTo">
-      <option>- Convert To -</option>
+      <option selected disabled hidden>-Select a Currency-</option>
     </select>
-
-    <br>
-    <label for="text-input">Enter a number:</label>
-    <input id="text-input" type="text">
-    <button type="submit">Submit</button>
+    <br><br>
+    <label for="amount-input">Enter an amount to convert:</label>
+    <input id="amount-input" type="number" required>
+    <button type="submit">Convert</button>
   </form>
+
+  <p id="errorMsgHolder"></p>
 
   <div id="outputDiv"></div>
 </body>

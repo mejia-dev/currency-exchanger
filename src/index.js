@@ -40,19 +40,23 @@ function addConversionOptions(array){
 
 function printError(error) {
   document.getElementById("errorMsgHolder").innerText = "";
-  document.getElementById("errorMsgHolder").innerText = `Error: ${error}`;
+  document.getElementById("errorMsgHolder").innerText = `${error}`;
 }
 
-function handleSampleForm() {
+function handleConversionForm() {
   event.preventDefault();
+  const amount = parseInt(document.getElementById("amount-input").value);
   const currencyFrom = (document.getElementById("currencyFrom").value).substring(0,3);
   const currencyTo = (document.getElementById("currencyTo").value).substring(0,3);
-  console.log(typeof(currencyFrom));
-  let amountDummy = 100;
-  doConversion(amountDummy,currencyFrom,currencyTo);
+  if ((currencyFrom === "-Se") || (currencyTo === "-Se")) {
+    printError('Please enter a valid currency');
+    return;
+  }
+  doConversion(amount,currencyFrom,currencyTo);
+  printError('');
 }
 
 window.addEventListener("load", function() {
   getConversionOptions();
-  document.getElementById("conversion-form").addEventListener("submit", handleSampleForm);
+  document.getElementById("conversion-form").addEventListener("submit", handleConversionForm);
 });
