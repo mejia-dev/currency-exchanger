@@ -11,35 +11,33 @@ async function getConversionOptions() {
     addConversionOptions(response.supported_codes);
   } 
   else {
-    console.log("error");
+    printError("error");
   }
 }
 
 
 // UI Logic
-
 function addConversionOptions(array){
   const currencyFrom = document.getElementById("currencyFrom");
-  // const currencyTo = document.getElementById("currencyTo");
+  const currencyTo = document.getElementById("currencyTo");
   for(let i = 0; i < array.length; i++) {
-    console.log("test");
-    let newOption = document.createElement("option");
-    newOption.append(array[i]);
-    currencyFrom.append(newOption);
-    // currencyTo.append(newOption);
+    let newFromOption = document.createElement("option");
+    let newToOption = document.createElement("option");
+    newFromOption.append(array[i]);
+    newToOption.append(array[i]);
+    currencyFrom.append(newFromOption);
+    currencyTo.append(newToOption);
   }
+}
+
+function printError(error) {
+  document.getElementById("errorMsgHolder").innerText = "";
+  document.getElementById("errorMsgHolder").innerText = error;
 }
 
 function handleSampleForm() {
   event.preventDefault();
-  getConversionOptions();
-  // let currencies = {};
-  // currencies = ExchangeRates.getValidCodesAsync();
-  // console.log(currencies.data);
-  // document.getElementById("outputDiv").innerText = null;
-  // const pTag = document.createElement("p");
-  // pTag.append(document.getElementById("text-input").value);
-  // document.getElementById("outputDiv").append(pTag);
+
 }
 
 window.addEventListener("load", function() {
