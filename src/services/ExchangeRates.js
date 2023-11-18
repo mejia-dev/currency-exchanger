@@ -18,7 +18,7 @@ export default class ExchangeRates {
   static convertCurrency(amount,currencyFrom,currencyTo) {
     return new Promise(function(resolve, reject) {
       let xhr = new XMLHttpRequest();
-      const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${currencyFrom}/${amount}/${currencyTo}`;
+      const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${currencyFrom}/${currencyTo}/amount`;
       xhr.addEventListener("loadend", function() {
         const response = JSON.parse(this.responseText);
         if (this.status === 200) {
@@ -27,11 +27,8 @@ export default class ExchangeRates {
           reject(this.status);
         }
       });
-
       xhr.addEventListener("error", function() {
-        reject({
-          status: "test"
-        });
+        reject(this);
       });
       xhr.open("GET", url, true);
       xhr.send();

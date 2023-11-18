@@ -20,7 +20,13 @@ function doConversion(amount, currencyFrom, currencyTo) {
   conversion.then(function (data) {
     printResults(data.conversion_result, data.conversion_rate, data.base_code, data.target_code);
   }, function (errorMessage) {
-    printError(errorMessage);
+    let newMsg = "";
+    if (errorMessage.status === 0) {
+      newMsg = 404;
+    } else (
+      newMsg = errorMessage.status
+    );
+    processHTMLErrors(newMsg);
   });
 }
 
