@@ -25,12 +25,12 @@ This project utilizes the Exchangerate-API from exchangerate-api.com to get curr
 ## Setup/Installation Requirements
 
 Obtain API Key:
-* Navigate to https://app.exchangerate-api.com/sign-up in your browser of choice
-* Sign up for an account
+* Navigate to https://app.exchangerate-api.com/sign-up in your browser of choice.
+* Sign up for an account.
 * On the first page that appears after account creation, you will receive an API key.
 
 Project Setup
-* Clone this repository to your desktop (from the Git Bash console, run "git clone https://github.com/mejia-dev/currency-exchanger.git" without quotes)
+* Clone this repository to your desktop (from the Git Bash console, run "git clone https://github.com/mejia-dev/currency-exchanger.git" without quotes).
 * From the Git Bash console, run "npm install" without quotes.
 * Create a new file called ".env" without quotes in the root directory of the project.
   * Open the .env file and enter "API_KEY=" without quotes, followed by the API key obtained from the website in the step above.
