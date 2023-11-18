@@ -15,19 +15,27 @@ async function getConversionOptions() {
   }
 }
 
-function doConversion(amount, currencyFrom, currencyTo) {
-  let conversion = ExchangeRates.convertCurrency(amount, currencyFrom, currencyTo);
-  conversion.then(function (data) {
-    printResults(data.conversion_result, data.conversion_rate, data.base_code, data.target_code);
-  }, function (errorMessage) {
-    let newMsg = "";
-    if (errorMessage.status === 0) {
-      newMsg = 404;
-    } else (
-      newMsg = errorMessage.status
-    );
-    processHTMLErrors(newMsg);
-  });
+async function doConversion(amount, currencyFrom, currencyTo) {
+  const response = await ExchangeRates.convertCurrency(amount, currencyFrom, currencyTo);
+  if (response.result === "success") {
+    printResults(response.conversion_result, response.conversion_rate, response.base_code, response.target_code);
+  } else {
+    processHTMLErrors(response.status);
+  }
+  
+  
+  // let conversion = ExchangeRates.convertCurrency(amount, currencyFrom, currencyTo);
+  // conversion.then(function (data) {
+  //   printResults(data.conversion_result, data.conversion_rate, data.base_code, data.target_code);
+  // }, function (errorMessage) {
+  //   let newMsg = "";
+  //   if (errorMessage.status === 0) {
+  //     newMsg = 404;
+  //   } else (
+  //     newMsg = errorMessage.status
+  //   );
+  //   processHTMLErrors(newMsg);
+  // });
 }
 
 // UI Logic
