@@ -19,7 +19,13 @@
 
 ## Description
 
-This project utilizes the Exchangerate-API from exchangerate-api.com to get currency conversions. The project must be self-assembled following the steps below.
+This project utilizes the Exchangerate-API from exchangerate-api.com to get currency conversions. 
+
+Features:
+* Allows users to convert currency between all available currency types.
+* Allows users to convert currency both to and from U.S. dollars.
+
+The project must be self-assembled following the steps below.
 
 
 ## Setup/Installation Requirements
