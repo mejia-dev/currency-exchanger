@@ -1,11 +1,55 @@
+/* Global Styling */
+
 body {
-  background-color: lightblue;
+  /* background-color: lightblue;
+  background-image: url(../assets/images/intl.jpg);
+  background-size: cover; */
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../assets/images/intl.jpg);
 }
 
+
+/* Functional Styling */
 .hidden {
   display: none;
 }
 
 #errorMsgHolder {
   color: red;
+  text-align: center;
+}
+
+
+/* Div styling */
+
+#titleDiv {
+  text-align: center;
+  background-color: gainsboro;
+  margin: 20px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#inputDiv {
+  text-align: center;
+  background-color: gainsboro;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#outputDiv {
+  text-align: center;
+  background-color: gainsboro;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
