@@ -24,26 +24,6 @@ This project utilizes the Exchangerate-API from exchangerate-api.com to get curr
 
 ## Setup/Installation Requirements
 
-SETUP A TEMPLATE: -----
-
-Modify the following items before initializing anything else:
-* webpack.config.js
-  * Line 24: Update project name
-* package.json
-  * Line 2: Update project name
-
-Run the following commands from GitBash:
-* Install packages: $ npm install
-* Build the project using webpack: $ npm run build
-
-Optionally, run the following commands:
-* Start a development server: $ npm run start
-* Run ESLint against the src folder: $ npm run lint
-* Run Jest tests using: $ npm run test
-
-
-FINAL SETUP FOR PROJECT: -----
-
 Obtain API Key:
 * Navigate to https://app.exchangerate-api.com/sign-up in your browser of choice
 * Sign up for an account
